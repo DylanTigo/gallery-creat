@@ -8,13 +8,18 @@ import data3 from './assets/p3/index';
 import data4 from './assets/p4/index';
 import data5 from './assets/p5/index';
 import { Card } from './components/Card';
-import { useMotionValue } from 'motion/react';
+import { useSpring } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 function App() {
+  const spring = {
+    stiffness: 150,
+    damping: 15,
+    mass: 0.1,
+  }
   const mousePosition = {
-    x: useMotionValue(0), 
-    y: useMotionValue(0)
+    x: useSpring(0, spring), 
+    y: useSpring(0, spring)
   }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const lenis = useLenis()
