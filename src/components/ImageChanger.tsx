@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, MotionValue } from 'motion/react';
 
 type ImageChangerProps = {
-  mousePosition: {x: MotionValue<number>, y: MotionValue<number>};
+  mousePosition: {x?: MotionValue<number>, y?: MotionValue<number>};
   images: string[];
 }
 

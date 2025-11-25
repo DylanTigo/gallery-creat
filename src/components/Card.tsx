@@ -4,7 +4,7 @@ import { ImageChanger } from "./ImageChanger";
 
 type CardProps = {
   data: CardItem;
-  mousePosition: {x: MotionValue<number>, y: MotionValue<number>};
+  mousePosition: {x?: MotionValue<number>, y?: MotionValue<number>};
   className?: string;
 };
 

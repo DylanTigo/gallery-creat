@@ -9,15 +9,26 @@ import data4 from './assets/p4/index';
 import data5 from './assets/p5/index';
 import { Card } from './components/Card';
 import { useMotionValue } from 'motion/react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const mousePosition = {
     x: useMotionValue(0), 
     y: useMotionValue(0)
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const lenis = useLenis()
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768)
 
-  const mouseMove = (e) => {
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 768)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const mouseMove = (e: React.MouseEvent) => {
     const {clientX, clientY} = e
     const targetX = clientX - 450/2
     const targetY = clientY - (450/2)*3/5
@@ -30,7 +41,7 @@ function App() {
       <ReactLenis root/>
       <h1>Some Outstanding Gallery</h1>
 
-      <div className="grid-container" onMouseMove={mouseMove}>
+      <div className="grid-container" onMouseMove={isLargeScreen ? mouseMove : undefined}>
         <Card data={data3} mousePosition={mousePosition} className='card3'/>
         <Card data={data1} mousePosition={mousePosition} className='card1'/>
         <Card data={data2} mousePosition={mousePosition} className='card2'/>
