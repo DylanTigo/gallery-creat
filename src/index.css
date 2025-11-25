@@ -123,6 +123,12 @@ h1 {
   object-fit: cover;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  color: var(--gray-dark);
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;

@@ -54,7 +54,8 @@ function App() {
         <Card data={data5} mousePosition={mousePosition} className='card5'/>
         <Card data={data4} mousePosition={mousePosition} className='card4'/>
       </div>
-    </main> 
+      <footer>By Dylan Noel</footer>
+    </main>
   )
 }
 
