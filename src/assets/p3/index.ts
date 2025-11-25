@@ -15,8 +15,8 @@ const images = [
 ];
 
 const data : CardItem = {
-  name: 'Project One',
-  author: 'Artist A',
+  name: 'The Coutine Club',
+  author: 'Christine Lee',
   url: 'https://example.com/project-one',
   source: 'Behance',
   images,
